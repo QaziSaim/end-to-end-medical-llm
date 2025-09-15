@@ -28,13 +28,13 @@ pc = Pinecone(api_key=pinecone_api_key)
 
 index_name = "medical-chatbot"  # change if desired
 
-# if not pc.has_index(index_name):
-#     pc.create_index(
-#         name=index_name,
-#         dimension=384,
-#         metric="cosine",
-#         spec=ServerlessSpec(cloud="aws", region="us-east-1"),
-#     )
+if not pc.has_index(index_name):
+    pc.create_index(
+        name=index_name,
+        dimension=384,
+        metric="cosine",
+        spec=ServerlessSpec(cloud="aws", region="us-east-1"),
+    )
 
 index = pc.Index(index_name)
 
